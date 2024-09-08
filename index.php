@@ -1,4 +1,4 @@
-<?php
+<div?php
 include("db_connect.php");
 ?>
 <!DOCTYPE HTML>
