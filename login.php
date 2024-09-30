@@ -79,9 +79,7 @@
                     <ul class="list-unstyled menu">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="rooms.php">Rooms</a></li>
-                        <li><a href="about.php">About</a></li>
                         <li><a href="scholership.php">Scholership</a></li>
-                        <li><a href="contact.php">Contact</a></li>
                         <li><a href="registration.php">Register</a></li>
                         <li class="active"><a href="login.php">Login</a></li>
                       </ul>

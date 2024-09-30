@@ -1,25 +1,14 @@
- <?php
-        include("db_connect.php");
-        if($_SERVER['REQUEST_METHOD']=='POST')
-          {
-              $name = $_POST["name"];
-              $phone_no = $_POST['phone'];
-              $email = $_POST['email'];
-              $pass = $_POST['pass'];
-              $role = $_POST['role'];
-              $address = $_POST['address'];
-              $hash = password_hash($pass, PASSWORD_DEFAULT);
-              $sql = "INSERT INTO `registration` ( `name`, `phone`, `email`, `password`, `role`, `address`, `date`) VALUES ('$name', '$phone_no', '$email ', '$hash', '$role', '$address', current_timestamp())";
-              $result = mysqli_query($con,$sql);
-              if($role == "Room Owner")
-              {
-                header("location:multi_step.php");
-              }
-              else
-              {
-                header("location:rooms.php");
-              }
-        }
+<?php
+ include("db_connect.php");
+?>
+<?php
+    if($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+        $name = $_POST["uname"];
+        $msg = $_POST["message"];
+        $sql = "INSERT INTO `feedback` ( `f_user`, `f_desc`, `date`) VALUES ('$name','$msg', current_timestamp())";
+        $result = mysqli_query($con , $sql);
+    }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -72,9 +61,8 @@
                         <li><a href="index.php">Home</a></li>
                         <li><a href="rooms.php">Rooms</a></li>
                         <li><a href="scholership.php">Scholership</a></li>
-                        <li><a href="contact.php">Contact</a></li>
-                        <li class="active"><a href="registration.php">Register</a></li>
-                        <li><a href="login.php">Login</a></li>
+                        <li  class="active"><a href="contact.php">Contact</a></li>
+                        <li><a href="logout.php">Logout</a></li>
                       </ul>
                     </div>
                   </div>
@@ -91,11 +79,11 @@
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
           <div class="col-md-10 text-center" data-aos="fade">
-            <h1 class="heading mb-3">Registration Form</h1>
+            <h1 class="heading mb-3">Feedback</h1>
             <ul class="custom-breadcrumbs mb-4">
               <li><a href="index.html">Home</a></li>
               <li>&bullet;</li>
-              <li>Registration</li>
+              <li>Feedback</li>
             </ul>
           </div>
         </div>
@@ -108,56 +96,28 @@
       </a>
     </section>
     <!-- END section -->
+
     <section class="section contact-section" id="next">
       <div class="container">
         <div class="row">
           <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-            <!--FORM-->
-            <form action="registration.php" method="post" class="bg-white p-md-5 p-4 mb-5 border">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <label class="text-black font-weight-bold" for="name">Name</label>
-                  <input type="text" id="name" name="name" class="form-control " required>
-                </div>
-                <div class="col-md-6 form-group">
-                  <label class="text-black font-weight-bold" for="phone">Phone</label>
-                  <input type="text" id="phone" name="phone" class="form-control "required>
-                </div>
-              </div>
-          
+            
+            <form action="#" method="post" class="bg-white p-md-5 p-4 mb-5 border">          
               <div class="row">
                 <div class="col-md-12 form-group">
-                  <label class="text-black font-weight-bold" for="email">Email</label>
-                  <input type="email" id="email" name ="email" class="form-control "required>
+                  <label for="email">Name</label>
+                  <input type="text" id="email" name = "uname" class="form-control ">
                 </div>
               </div>
-
-              <div class="row">
-                <div class="col-md-12 form-group">
-                  <label class="text-black font-weight-bold" for="password">Password</label>
-                  <input type="password" id="password" name="pass" class="form-control "required>
-                </div>
-              </div>  
-
-              <label class="text-black font-weight-bold" for="password">Choose your role</label><br>
-                <div class="form-check form-check-inline text-black">
-                  <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="Room seaker">
-                  <label class="form-check-label" for="inlineRadio1">Room seaker</label>
-                </div>
-                <div class="form-check form-check-inline text-black ">
-                  <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="Room Owner">
-                  <label class="form-check-label" for="inlineRadio2">Room owner</label>
-                </div>
-      
               <div class="row mb-4">
                 <div class="col-md-12 form-group">
-                  <label class="text-black font-weight-bold" for="Address">Address</label>
-                  <textarea name="address" id="Address" class="form-control " cols="30" rows="4"required></textarea>
+                  <label for="message">Write Message</label>
+                  <textarea name="message" id="message" class="form-control " cols="30" rows="8"></textarea>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="submit" value="Register Now" class="btn btn-primary text-white py-3 px-5 font-weight-bold">
+                  <input type="submit" value="Submit" class="btn btn-primary text-white font-weight-bold">
                 </div>
               </div>
             </form>
@@ -166,99 +126,15 @@
           <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
             <div class="row">
               <div class="col-md-10 ml-auto contact-info">
-                <p><span class="text-black"> Wel- Come</span></p>
-                <p><span class="d-block">TO RooMate</span> </p>
-                <p><span class="d-block">Already have an account ? then <a href="login.php">LOG-IN</a></span></p>
+                <p><span class="d-block">Address:</span> <span> 98 West 21th Street, Suite 721 New York NY 10016</span></p>
+                <p><span class="d-block">Phone:</span> <span> (+1) 234 4567 8910</span></p>
+                <p><span class="d-block">Email:</span> <span> info@domain.com</span></p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <section class="section testimonial-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-          <div class="col-md-7">
-            <h2 class="heading" data-aos="fade-up">People Says</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="js-carousel-2 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-            
-            <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
-              <blockquote>
-
-                <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; Jean Smith</em></p>
-            </div> 
-
-            <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
-              <blockquote>
-                <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; John Doe</em></p>
-            </div>
-
-            <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
-              <blockquote>
-
-                <p>&ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; John Doe</em></p>
-            </div>
-
-
-            <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
-              <blockquote>
-
-                <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; Jean Smith</em></p>
-            </div> 
-
-            <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
-              <blockquote>
-                <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; John Doe</em></p>
-            </div>
-
-            <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
-              <blockquote>
-
-                <p>&ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; John Doe</em></p>
-            </div>
-
-          </div>
-            <!-- END slider -->
-        </div>
-
-      </div>
-    </section>
-
-    
     
     <section class="section bg-image overlay" style="background-image: url('images/hero_4.jpg');">
         <div class="container" >

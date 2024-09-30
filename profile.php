@@ -1,9 +1,5 @@
-<?php
- include("db_connect.php");
-?>
 <!DOCTYPE HTML>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,11 +49,12 @@
                                     <div class="col-md-6 mx-auto">
                                         <ul class="list-unstyled menu">
                                             <li><a href="index.php">Home</a></li>
-                                            <li class="active"><a href="rooms.php">Rooms</a></li>
+                                            <li><a href="rooms.php">Rooms</a></li>
                                             <li><a href="about.php">About</a></li>
                                             <li><a href="scholership.php">Scholership</a></li>
                                             <li><a href="contact.php">Contact</a></li>
-                                            <li><a href="logout.php">Logout</a></li>
+                                            <li class="active"><a href="registration.php">Register</a></li>
+                                            <li><a href="login.php">Login</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -75,11 +72,11 @@
         <div class="container">
             <div class="row site-hero-inner justify-content-center align-items-center">
                 <div class="col-md-10 text-center" data-aos="fade">
-                    <h1 class="heading mb-3">Rooms</h1>
+                    <h1 class="heading mb-3">Your Profile</h1>
                     <ul class="custom-breadcrumbs mb-4">
                         <li><a href="index.html">Home</a></li>
                         <li>&bullet;</li>
-                        <li>Rooms</li>
+                        <li>Your profile</li>
                     </ul>
                 </div>
             </div>
@@ -91,97 +88,9 @@
             </div>
         </a>
     </section>
-    <!-- END section -->
+    
+    <!-- END section -->  
 
-    <section class="section pb-4">
-        <div class="container">
-
-            <div class="row check-availabilty" id="next">
-                <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
-
-                    <form action="#">
-                        <div class="row">
-                            <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                                <label for="checkin_date" class="font-weight-bold text-black">Joining Date</label>
-                                <div class="field-icon-wrap">
-                                    <div class="icon"><span class="icon-calendar"></span></div>
-                                    <input type="text" id="checkin_date" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                                <label for="Time period" class="font-weight-bold text-black">Time period(In
-                                    months)</label>
-                                <div class="field-icon-wrap">
-                                    <div class="icon"><span class="icon-calendar"></span></div>
-                                    <input type="text" id="Time period" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3 mb-md-0">
-                                        <label for="adults" class="font-weight-bold text-black">Gender</label>
-                                        <div class="field-icon-wrap">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="" id="adults" class="form-control">
-                                                <option value="">Male</option>
-                                                <option value="">Female</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3 mb-md-0">
-                                        <label for="children" class="font-weight-bold text-black">Rent Range</label>
-                                        <div class="field-icon-wrap">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="" id="children" class="form-control">
-                                                <option value="">500-1000</option>
-                                                <option value="">1000-2000</option>
-                                                <option value="">2000-5000</option>
-                                                <option value="">5000+</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3 align-self-end">
-                                <button class="btn btn-primary btn-block text-white">Check Availabilty</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-
-    <section class="section">
-        <div class="container">
-        <?php
-          $sql = "SELECT * FROM `roomdetails`";
-          $result = mysqli_query($con, $sql);
-          echo "<div class = 'row'>";
-          while($row=mysqli_fetch_array($result)){
-            $id = $row["r_id"];
-            $type = $row["r_type"];
-            $price = $row["r_rent"];
-            echo "
-              <div class='col-md-6 col-lg-4 mb-5' data-aos='fade-up'>
-                <a href='#' class='room'>
-                  <figure class='img-wrap'>
-                    <img src='images/img_1.jpg' alt='Free website template' class='img-fluid mb-3'>
-                  </figure>
-                  <div class='p-3 text-center room-info'>
-                    <h2><a href='room_details.php?id=$id'>".$type."</a></h2>
-                    <span class='text-uppercase letter-spacing-1'>".$price."/ per month</span>
-                  </div>
-                </a>
-              </div>
-            ";
-          }
-          echo "<div>";
-        ?>
-    </section>
     <section class="section bg-image overlay" style="background-image: url('images/hero_4.jpg');">
         <div class="container">
             <div class="row align-items-center">

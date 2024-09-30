@@ -50,7 +50,7 @@
                       <ul class="list-unstyled menu">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="rooms.php">Rooms</a></li>
-                        <li class="active"><a href="about.php">About</a></li>
+                        <li class="active"><a href="feedback.php">Feedback</a></li>
                         <li><a href="scholership.php">Scholership</a></li>
                         <li><a href="contact.php">Contact</a></li>
                         <li><a href="logout.php">Logout</a></li>
@@ -105,7 +105,7 @@
                $f2 = $row["r_f2"];
                $f3 = $row["r_f3"];
               echo "<figure class='img-absolute'>
-              <img src='".$img1."' alt='Free Website Template by Templateux' class='img-fluid'>
+              <img src='images\hero_2.jpg' alt='Free Website Template by Templateux' class='img-fluid'>
               </figure>
               <img src='".$img2."' alt='Image' class='img-fluid rounded'></div>
               <div class='col-md-12 col-lg-4 order-lg-1' data-aos='fade-up'>
@@ -166,7 +166,7 @@
                     </blockquote>
                     <div class='author d-flex'>
                    <div class='image mr-3 align-self-center'>
-                   <img src='".$profile."' alt='Owner profile'>
+                   <img src='images\ ".$profile."' alt='Owner profile'>
                    </div>
                    <div class='name align-self-center'>".$name."</div>
                    </div>
@@ -229,48 +229,20 @@
             </div>
             <!-- END slider -->
           </div>
-        
+          <div class="container" >
+          <div class="row align-items-center">
+            <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
+              <h2 class="text-dark font-weight-bold">A Best Place To Stay. Reserve Now!</h2>
+            </div>
+            <div class="col-12 col-md-6 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
+              <a href="reservation.html" class="btn btn-primary py-3 text-dark px-5">Reserve Now</a>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </section>
     <!-- END section -->
-
-    <div class="section">
-      <div class="container">
-
-        <div class="row justify-content-center text-center mb-5">
-          <div class="col-md-7 mb-5">
-            <h2 class="heading" data-aos="fade">History</h2>
-          </div>
-        </div>
-
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <div class="timeline-item" date-is='2019' data-aos="fade">
-              <h3>More Branches Worldwide</h3>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-            </div>
-            
-            <div class="timeline-item" date-is='2011' data-aos="fade">
-              <h3>Company Full Blast</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-              </p>
-            </div>
-            
-            <div class="timeline-item" date-is='2008' data-aos="fade">
-              <h3>The Birth of the Company</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-              </p>
-            </div>
-          </div>
-        </div>
-        
-
-      </div>
-    </div>
     <section class="section testimonial-section bg-light">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
@@ -302,22 +274,12 @@
                 </div>
                 <!-- END slider -->
             </div>
-
         </div>
     </section>
     
     
     <section class="section bg-image overlay" style="background-image: url('images/hero_4.jpg');">
-        <div class="container" >
-          <div class="row align-items-center">
-            <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
-              <h2 class="text-white font-weight-bold">A Best Place To Stay. Reserve Now!</h2>
-            </div>
-            <div class="col-12 col-md-6 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
-              <a href="reservation.html" class="btn btn-outline-white-primary py-3 text-white px-5">Reserve Now</a>
-            </div>
-          </div>
-        </div>
+
       </section>
 
     <footer class="section footer-section">
